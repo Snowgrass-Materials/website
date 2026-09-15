@@ -35,7 +35,10 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        # baseURL comes from hugo.toml (https://snowgrass.au/). Don't use
+        # steps.pages.outputs.base_url: it reports http:// until Enforce HTTPS
+        # is on, which bakes http links into canonical, og:url and the sitemap.
+        run: hugo --gc --minify
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
