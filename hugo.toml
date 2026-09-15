@@ -1,0 +1,13 @@
+baseURL = 'https://snowgrass.au/'
+locale = 'en-AU'
+title = 'Snowgrass Materials'
+disableKinds = ['taxonomy', 'term', 'rss']
+enableRobotsTXT = true
+
+[params]
+  description = 'Snowgrass Materials is developing natural raw materials into powerful insulation products. Coming 2027.'
+  legalName = 'Snowgrass Materials Pty Ltd'
+  email = 'hello@snowgrass.au'
+  location = 'Canberra region, NSW'
+  abn = '88 702 060 786'
+  acn = '702 060 786'

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{- $description := .Description | default site.Params.description }}
+  <meta name="description" content="{{ $description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="theme-color" content="#f8f6ef">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  {{- if fileExists "static/favicon.svg" }}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{- end }}
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "og-image.png" | absURL }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/fonts/alegreya-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+
+  {{- if .IsHome }}
+  <script type="application/ld+json">
+  {{ dict
+      "@context" "https://schema.org"
+      "@type" "Organization"
+      "name" site.Title
+      "legalName" site.Params.legalName
+      "url" site.BaseURL
+      "logo" ("icon-512.png" | absURL)
+      "email" site.Params.email
+      "taxID" (printf "ABN %s" site.Params.abn)
+    | jsonify | safeJS }}
+  </script>
+  {{- end }}
+</head>
+<body>
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer.html" . }}
+</body>
+</html>

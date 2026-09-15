@@ -1,0 +1,10 @@
+{{ define "main" }}
+<main class="home">
+  <h1 class="logo">
+    <img src="/images/snowgrass-materials.svg" alt="Snowgrass Materials" width="1000" height="318">
+  </h1>
+  <p class="lede">{{ .Params.lede }}</p>
+  <p class="status">{{ .Params.status }}</p>
+  <p class="contact"><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+</main>
+{{ end }}

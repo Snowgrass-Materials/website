@@ -1,0 +1,140 @@
+/* Fonts: Alegreya Sans (body) and Alegreya Italic (display), SIL OFL 1.1, subset to Latin. */
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("/fonts/alegreya-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("/fonts/alegreya-sans-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("/fonts/alegreya-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya";
+  src: url("/fonts/alegreya-italic-variable.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --olive: #4a4b19;
+  --ink: #2e2f1c;
+  --muted: #5f5f4a;
+  --paper: #f8f6ef;
+  --rule: #dcd8c6;
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding-inline: 1.25rem;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--olive);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+a:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.home {
+  flex: 1;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+  margin: 0 0 2.25rem;
+  font-size: inherit;
+  line-height: 0;
+}
+.logo img {
+  display: block;
+  width: min(100%, 34rem);
+  height: auto;
+  margin-inline: auto;
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  font-size: 1.25em;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.status {
+  margin: 0 0 2.25rem;
+  font-family: "Alegreya", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.6em;
+  line-height: 1.2;
+  color: var(--olive);
+}
+
+.contact {
+  margin: 0;
+}
+
+.site-footer {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.8em;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 1.5em;
+  row-gap: 0.25em;
+}
+.site-footer span {
+  white-space: nowrap;
+}
